@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ user }) {
-      if (!user.email?.endsWith(process.env.ALLOWED_DOMAIN as string)) {
+      if (!user.email?.endsWith("@"+ process.env.ALLOWED_DOMAIN)) {
         throw new Error("You are not allowed to access this platform");
       }
       return true;
